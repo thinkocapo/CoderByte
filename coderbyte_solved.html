@@ -1,0 +1,662 @@
+<script>
+//1. FIRST REVERSE - reverse the letters of a string
+function FirstReverse(str){
+	 return str.split("").reverse().join("");
+ }
+//OR
+function FirstFactorial(str){
+var res = ''; 
+  for (var i = str.length - 1; i >= 0; i--) {
+    res += str[i];
+}
+   return res;
+}
+FirstFactorial("abcdefgh"); //returns 'hgfedcba'
+
+//2. FIRST FACTORIAL - find the factorial of a number
+//WILL'S While..Loop, countdown
+function FirstFactorial(num) { 
+	var count = num - 1;
+	var newnum = num;
+		
+	while (count > 0) {
+		newnum *= count ;
+		count -= 1;
+	}
+	return newnum;
+}
+//FOR loop, counting up
+function FirstFactorial(num) { //DONE
+
+  var res = 1;
+  for (var i = 2; i <= num; i++) {
+    res *= i;
+  }
+  return res; 
+            
+}
+//RECURSIVE
+function FirstFactorial(num) { 
+  if (num > 1) { //greater than 1 and not 0, because on the last recursive call it would be 1 - 1, and then pass 0 to the next iteration to be multiplied!
+    num = num * FirstFactorial(num - 1);
+  }
+  return num; 
+}
+
+//3. LONGEST WORD - find the longest word in a string of words
+for(var i=0; i < parts.length; i++){
+    if(parts[i].length > longestWord){
+        longestWord = parts[i].length;
+        Index = i;
+    }
+}
+return parts[Index];
+
+
+//Regex Match.Sort.Shift
+  return sen.match(/[\w]+/g).sort(function(a, b){return b.length - a.length})
+    .shift();
+
+
+//4. Letter Changes - Change all letters in a string to the next one in the alphabet. If the new letter is a vowel, then Capitalize it.
+  function LetterChanges(str) { 
+    var res = "";
+    for (var i = 0; i < str.length; i++) {
+		var cur = str[i]; //needed for spaces to appear between words.
+      if (str[i] == 'z') {
+		  cur = 'a'; //important, not res+= a
+      } else if (str.charCodeAt(i) >= 'a'.charCodeAt(0) && str.charCodeAt(i) <= 'z'.charCodeAt(0)) {
+		  cur = String.fromCharCode(str.charCodeAt(i) + 1);
+      }
+      if (cur == 'a' || cur == 'e' || cur == 'i' || cur == 'o' || cur == 'u') {
+        cur = cur.toUpperCase();
+      }
+      res += cur;
+    }
+    return res;       
+}
+
+//5. Simple Adding - Given a number, add all the numbers below it
+//WILL'S
+function SimpleAdding(num){
+var tot = 0;
+for (i=1;i<=num;i++){
+    tot += i;
+}
+return tot;
+}
+SimpleAdding(4);
+
+//OR recursive
+function SimpleAdding(num) { 
+  if(num === 1){
+    return 1; 
+  }
+  return num + SimpleAdding(num - 1);
+}
+
+//6. LetterCapitilize - capitalize the first letter of each word
+//WILL'S
+var arr = str.split(' ');
+var res = '';
+
+for (i=0;i<arr.length;i++){
+    for (j=0;j<arr[i].length;j++){
+        if (j===0){
+            res+= arr[i][j].toUpperCase()
+        } else {
+            res+= arr[i][j];
+        }
+    }
+    res += ' ';
+}
+return res;
+}
+  
+//7. Simple Symbols - letters must be surrounded by '+' (ie. ++d+===+c++==a) returns false
+  var arr=str.split("");
+  for (var i=0; i<arr.length; i++){ //testing for all the false scenarios...first
+    if (arr[i].match(/[a-z]/gi)!=null){
+      if (i==0 || i == arr.length-1){
+        return false;
+      }
+      else{
+        if (arr[i-1]!="+" || arr[i+1]!="+"){
+          return false;
+        }
+      }
+      
+    }
+  }
+  return true;      
+}
+
+//
+return str.replace(/\b[a-z]/g,function(c){return c.toUpperCase()});
+
+//8. Check Nums - true if num2>num1, otherwise false. -1 if equal
+//EASY
+if num2 > num1 {"true"} else if (num1>num2) {"false"} else "-1"
+
+
+//9.TimeConvert = convert minutes(95) to hours:minutes
+//EASY
+function TimeConvert(num) { 
+var hours = Math.floor(num / 60);
+var minutes = num % 60;
+	return hours + ":" + mins;
+}
+TimeConvert(readline());           
+
+	
+//10. ALphabet Soup - alphabetize a string's chars 
+function AlphabetSoup(str) { 
+  var res=[];
+  for(var i=0; i < str.length; i++) {
+    res.push(str[i]);
+  }
+  return res.sort().join('');       
+}
+	
+//Methods
+function AlphabetSoup(str){}
+split().sort().join() 
+}
+
+//11. AB Check  - Return true if the characters a and b are separated by exactly 3 places at least once, Otherwise return the string false. 
+//WILL'S
+function ABCheck(str) {  //question doesn't ask for all cases of a...b or like "a000b a1234b" but would be nice to write a REGEX for that
+	function ABCheck(str) {  
+	var reg2 = /b...a/;
+	var reg = /a...b/;
+		if (reg.test(str)){
+		    return true;
+		} else if (reg2.test(str)){
+		    return true;
+		} else {
+		    return false;
+		}
+	}
+}
+
+//return str.match(/(a[\s\S][\s\S][\s\S]b)|(b[\s\S][\s\S][\s\S]a)/i)!==null; 
+
+//12. VOWEL COUNT - Return the number of vowels in the string
+//WILL'S
+function VowelCount(str) { 
+count = null;
+for(i=0;i<str.length;i++) {
+    if (str[i]=='a' |
+        str[i]=='e' |
+        str[i]=='i' |
+        str[i]=='o' |
+        str[i]=='u') {
+       count++;
+    }
+}
+  return count; 
+}
+
+//REGEX
+function VowelCount(str) {
+  return str.match(/[aeiou]/g).length;       
+}
+	
+//13.Word Count - count the number of words in a string
+//WILL'S ANSWER
+function WordCount(str) { 
+    if (str == "") {
+           return 0;
+    } else {
+	return (str.split(" ")).length; 
+	}
+}
+	
+//same
+function WordCount(str) { 
+  var arr=str.split(" ");
+  if (arr ==null){
+    return 0;
+  }
+  else{
+    return arr.length;
+  }         
+}
+
+//using a counter variable for the number of spaces
+function WordCount(str) { 
+  var wordCount = 0;
+  for (var i = 0; i<str.length; i++){
+    if (str[i] == " "){
+     wordCount++; 
+    }else if (i == str.length-1){  //in case there's 0 words..
+     wordCount++; 
+    } 
+  } 
+  return wordCount;         
+}
+
+//14. Ex Oh - returne true if there's an equal amount of x's and o's , "xooxxxxooxo" returns false
+//WILL'S REGEX
+function ExOh(str) {
+return str.match(/x/ig).length == str.match(/o/ig).length;
+}
+
+ExOh("xoo"); //false                            
+	
+//15. Palindrome - check if a string input reads the same forwards as it does backwards
+//WILL'S
+function Palindrome(str) { 
+
+var oristr = str.split('');
+var revstr = str.split('').reverse();
+var c = 0;
+
+for(i=0; i<str.length; i++) {
+    if (oristr[i]==revstr[i]) { //doesn't work because 'c' is in position 2 in origstr, and position 3 in the other
+        c++;
+    }
+}
+if (c == str.length) {
+    return true;
+} else {
+    return false;
+}
+}
+
+//
+function Palindrome(str) { 
+  str = str.split(" ").join("");
+  var rev = str.split("").reverse().join("")
+  return str.localeCompare(rev) == 0;  //string localCompare
+}
+/* the above return statement is same as:
+if (str.localeCompare(pal) === 0){
+    return true;
+} else {
+    return false;
+}
+*/
+	
+//16.Arith Geo - Return "arithmetic" if the #'s follow an arithmetic sequence, return "gemoetric" if the #'s follow a geometric sequence. [2, 4, 6, 8] and or [2, 6, 18, 54]. Negative numbers may be entered as parameters, 0 will not be entered, and no array will contain all the same elements. */
+// WILL'S
+function ArithGeo(arr){
+
+var arith = arr[1] - arr[0];
+for (i=1; i<arr.length-1; i++){
+    if (arr[i+1] - arr[i] == arith){} else {
+        //return false?
+        arith = 0;
+    }
+}
+
+geom = arr[1] / arr[0];
+for (i=1; i<arr.length-1; i++){
+    if (arr[i+1] / arr[i] == geom){} else {
+        //return false?
+        geom = 0;
+    }
+}
+
+if (arith!==0) {
+    return 'Arithmetic';
+} else if (geom!==0) {
+    return 'Geometric';
+} else {
+    return -1;
+}
+}
+ArithGeo([2,4,8,16]);
+	
+//Arith Geo - 2 More Functions
+function ArithGeo(arr){
+	if (IsArith(arr)){
+    	return 'Arithmetic';
+	}else if (IsGeom(arr)){
+    	return 'Geometric';
+	} else {
+    	return -1;
+	}
+}
+
+function IsArith(arr){
+var arith = arr[1] - arr[0];
+for (i=1; i<arr.length-1; i++){
+    if (arr[i+1] - arr[i] == arith){} else {
+        return false;
+    }
+}
+return true;
+}
+
+function IsGeom(arr){
+geom = arr[1] / arr[0];
+for (i=1; i<arr.length-1; i++){
+    if (arr[i+1] / arr[i] == geom){} else {
+        return false;
+    }
+}
+return true;
+}
+
+ArithGeo([2,4,6,8]);
+/*OR USE
+    if(!IsArith(arr) && !isGeom(arr)){ //good to practice like this
+        return -1;
+    }
+    if (IsArith(arr)){
+        return 'Arithmetic';
+    } else if (IsGeom(arr)){
+        return 'Geometric';
+    }
+}
+*/
+	
+//17. Array Addition I - return true if any combination of numbers in the array can be added up to equal the largest number in the array, otherwise return the string false. For example: if arr contains [4, 6, 23, 10, 1, 3] the output should return true because 4 + 6 + 10 + 3 = 23. The array will not be empty, will not contain all the same elements, and may contain negative numbers. 
+function ArrayAddition(arr) { 
+var tot = 0;
+arr.sort(function(a,b){return b-a});
+
+for (i=1;i<arr.length;i++){
+    tot += arr[i];
+}
+
+if (tot >= arr[0]){
+    return true;
+} else {
+    return false;
+}
+}
+ArrayAddition([4, 6, 300, 10, 1, 3]);
+		
+//18. Letter Count I
+/*return the first word with the greatest number of repeated letters. For example: "Today, is the greatest day ever!" should return greatest because it has 2 e's (and 2 t's) and it comes before ever which also has 2 e's. If there are no words with repeating letters return -1. Words will be separated by spaces.*/
+	
+//
+function LetterCountI(str) { 
+  var words = str.split(' ');
+  var maxLength = 0;
+  for(var i=0;i<words.length;i++){
+	  var hi = words[i].match(/([a-z])(?=.*\1)/ig); //if it doesn't match any, then value of hi will be null!
+    if(hi !== null){ //need this, bc when hi will be equal to null when there are no repeating letters!
+      if(hi.length>maxLength){
+        maxLength = hi.length;
+        var maxWord = words[i]; 
+      }
+    }
+  }
+  return maxWord || -1;
+}
+
+/*
+(?= ... )
+Lookahead, a zero-width assertion about what's coming up in the string, here used to assert:
+(?=p) A positive look-ahead assertion. Require that the following characters match the pattern p, but do not include those characters in the match.	
+http://stackoverflow.com/questions/13362987/regex-that-matches-a-string-only-with-question-marks	
+\1 means 'the first subset'? or 'matches it into 1'?
+Match the same characters that were matched when group number n was first matched. Groups are subexpressions within (possibly nested) parentheses. Group numbers are assigned by counting left parentheses from left to right. Groups formed with (?: are not numbered.
+http://www.regular-expressions.info/lookaround.html
+*/
+	
+//19.Second GreatLow
+//Return the second lowest number and second highest numbers of an Array. Be able to do this for [80,80] which returns "80 80" and [5,-4,-4,10,2] which returns "2 5"
+//WILL'S NEW SOLUTION ON APRIL 1ST - works for [5,-4,-4,10,2]
+function SecondGreatLow(array){
+var arr = array.sort(function(a,b){return a - b});
+//add condition for if array is [80,80];
+var init = arr[0];
+var secondlow = 0;
+for (i=1;i<arr.length;i++){
+    if (arr[i]>init){
+        secondlow = arr[i]; 
+        break;
+    }
+}
+var last = arr[arr.length-1];
+var secondhigh = 0;
+for (i=arr.length-1;i>=0;i--){
+    if (arr[i]<last){
+        secondhigh = arr[i];
+        break;
+    }
+}
+var output = [secondlow, secondhigh];
+return output.join(' ');
+}
+SecondGreatLow([5,-4,-4,10,2]); //returns 2, 5
+
+/*
+if(arr.length == 2)
+	return "" + Math.max(arr[0],arr[1]) + " " + Math.min(arr[0],arr[1]); */
+	
+//20. Division Stringifield - Divide num1 by num2, and return the numerical result as a string with properly formatted commas*/
+//DONE
+function DivisionStringified(num1,num2) { 
+  var num = Math.round(num1/num2).toString().split("");
+  var index = -3;
+  while(num.length + index > 0){
+    num.splice(index,0,",");
+    index -= 4;
+  }
+  return num.join("");
+}
+
+//21. Counting Minutes - Return the total number of minutes between two times. 9:00am-7:00am then the output should be 1320. Use exec //***************************PRACTICE AGAIN
+//REGEXP
+function CountingMinutesI(str) { 
+
+  // code goes here  
+  var match = /(\d{1,2}):(\d{1,2})(am|pm)-(\d{1,2}):(\d{1,2})(am|pm)/.exec(str);
+  
+  var minute = function(h, m, ampm) {
+    var time = (Number(h) % 12) * 60 + Number(m);
+    if(ampm == "pm") time += 12 * 60;
+    return time;
+  };
+  
+  var time1 = minute(match[1], match[2], match[3]);
+  var time2 = minute(match[4], match[5], match[6]);
+  
+  if(time2 < time1) time2 += 24 * 60;
+  
+  return time2 - time1;
+}
+/////////////////////////////////////////////////
+function CountingMinutesI(str) { 
+  var match = /(\d{1,2}):(\d{1,2})(am|pm)-(\d{1,2}):(\d{1,2})(am|pm)/.exec(str);
+  
+   var minute = function(h, m, ampm) {
+      var time = 0;
+       if (ampm == "pm"){
+           time = eval("h + 12") * 60 + Number(m); //780 //need eval?
+       } else {
+           time = h * 60 + Number(m); //660
+           //console.log(time); //660
+       }
+    return time;
+   };
+  
+  var time1 = minute(match[1], match[2], match[3]);
+  var time2 = minute(match[4], match[5], match[6]);
+  
+  //if(time2 < time1) time2 += 24 * 60;
+  
+  return time2 - time1;
+}
+
+CountingMinutesI("11:00am-1:00pm");
+	
+//22 MeanMode ??????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????
+/*Using the JavaScript language, have the function MeanMode(arr) take the array of numbers stored in arr and return 1 if the mode equals the mean, 0 if they don't equal each other (ie. [5, 3, 3, 3, 1] should return 1 because the mode (3) equals the mean (3)). The array will not be empty, will only contain positive integers, and will not contain more than one mode. 
+*/
+
+function MeanMode(arr) { 
+  var res={};
+  var max = 0;
+  var mode = 0;
+  var mean = 0;
+  var sum = 0;
+  for(var i=0;i<arr.length;i++){
+    sum+=arr[i];
+  }
+  mean = parseInt(sum/arr.length);
+  arr.forEach(function(el){
+    if(res[el]) {
+      res[el]++;
+    } 
+    else{
+      res[el] = 1;
+    }
+    if(res[el]>max){
+      max = res[el];
+      mode = el;
+    } 
+  });
+    return mode==mean ? 1:0;        
+}*/
+	
+//23. Dash Insert - insert dashes ('-') between each two odd numbers in str. For example: if str is 454793 the output should be 4547-9-3. Don't count zero as an odd number. */
+  function DashInsert(num){//???????????????????????????????
+  var ans=num.toString().split("");
+  for (i=0;i<ans.length-1;i++) {
+    if ((ans[i]%2 == 1) && (ans[i+1]%2 == 1)) { ans.splice(i+1,0,"-") }
+    console.log([i]%2);
+  }
+  return ans.join(""); 
+
+//24. SwapCase - replace upper-case letters in a string with lower-case letters, and vice versa //swap = ""
+function SwapCase(str) {  //
+var swap = "";
+for (i=0;i<str.length;i++){
+    if (str[i] == str[i].toUpperCase()) {
+        swap = swap + str[i].toLowerCase();
+    } else if (str[i] == str[i].toLowerCase()) {
+        swap = swap + str[i].toUpperCase();
+    }
+}    
+return swap;   
+}	
+//
+	function SwapCase(str) { 
+	  return str.replace(/[a-z]/ig,function(c){
+	    if(c == c.toUpperCase()) return c.toLowerCase() //won't work if you include {} curly brackets. so multiple return statements?
+	    return c.toUpperCase();
+	  });
+	}
+	
+//25. Number Addition - /*Return the numbers in a string, added up together. "88Hello 3World!" returns 91. Each string will contain at least one letter or symbol. */ 
+//WILL'S'
+	function NumberAddition(str) { 
+	  var nums = str.match(/\d+/g); //be careful bc each number in the array that this returns, is actually a string
+	  if (nums === null) {
+	    return 0;
+	  }
+	  var sum = 0;
+	  for (i=0; i<nums.length; i++) { //don't forget .length here
+	      sum = sum + Number(nums[i]); //need Number method or it will concat
+	  }
+	 return sum;
+	}
+	NumberAddition("79Number9 okay2 mand 21");      
+/////
+	function NumberAddition(str) { 
+	  var nums = str.match(/\d+/g);
+	  if (nums === null) {
+	    return 0;
+	  }
+	  return eval(nums.join('+'))
+	}
+
+//26. Third Greatest ?????????????????????????????????????????????
+/*Return third largest word in a string. ["hello", "world", "before", "all"] returns "before". ["hello", "world"] are both 5, but the output should be world because it appeared as the last 5 letter word in the array[I can accomodate this? Find a solution that does?]. If strArr was ["hello", "world", "after", "all"] returns "after" because its the 3rd word. (The array will have at least three strings and each string will only contain letters.*/
+
+////return b.length - a.length;
+function ThirdGreatest(strArr) { 
+  strArr.sort(function(a,b){
+    return b.length - a.length;
+  });      
+  return strArr[2];
+}
+*/
+
+//27. Powers of Two
+/*Return whether or not a number is a power of 2. 16 returns true, 22 returns false*/
+//WILL'S
+function PowersofTwo(num) { 
+var end = 0;
+for (i=1; i<num; i++){
+ if (Math.pow(2,i) == num) {
+     end = true;
+ }
+}
+return end || false;
+}	
+////recusive
+function PowersofTwo(num) { 
+  num /= 2;
+  if(num == 1) return true;
+  if(num % 1 !== 0) return false;
+  return PowersofTwo(num); 
+}
+	
+////while
+function PowersofTwo(num) { 
+  var x = num;
+  while (x > 1) {
+    x /= 2;
+  }
+  return x == 1; 
+//28. Additive Persistence
+/*return the number of times you must add the digits in num until you reach a single digit. For example: if num is 2718 then your program should return 2 because 2 + 7 + 1 + 8 = 18 and 1 + 8 = 9 and you stop at 9.*/
+
+//29. Multiplicative Persistence - return its multiplicative persistence which is the number of times you must multiply the digits in num until you reach a single digit. For example: if num is 39 then your program should return 3 because 3 * 9 = 27 then 2 * 7 = 14 and finally 1 * 4 = 4 and you stop at 4. 
+
+//WILL'S
+function MultiplicativePersistence(num) { 
+var c = 0; //counter
+var res = num; //result
+
+function check(res) {
+    for (i=0;i<res.length;i++){
+      res += Number(arguments[i]);
+    }
+    if (res.length==1) {
+        return c; //the exit condition to the recursive call
+    } else {
+        c++;
+        return check(res); //the recursive call
+    }
+}
+check(res); //function call
+}
+MultiplicativePersistence(123);                            
+
+////??????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????
+function MultiplicativePersistence(num) { 
+  var c = 0;
+  var n = num.toString();
+  while (n.length > 1) {
+    c += 1;
+    n = eval(n.split('').join('*')).toString();
+  }
+  return c;  
+}
+	
+//30. Off Line Minimum - The input will be in the following format: ["I","I","E","I",...,"E",...,"I"] where the I's stand for integers and the E means take out the smallest integer currently in the whole set. When finished, your program should return that new set with integers separated by commas. For example: if strArr is ["5","4","6","E","1","7","E","E","3","2"] then your program should return 4,1,5.  (myArray,finall arra. push. shift)*/
+////??????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????
+	function OffLineMinimum(strArr) { 
+	  var myArr = [];
+	  var finalArr = [];
+	  for(var i=0;i<strArr.length;i++){
+	    if(strArr[i].match(/\d+/g)){
+	      myArr.push(strArr[i])
+	    }
+	    else{
+	      myArr.sort(function(a,b){return a-b});
+	      finalArr.push(myArr.shift());
+	    }
+	  }
+	  return finalArr.join(',');
+	}	
+*/
+</script>
