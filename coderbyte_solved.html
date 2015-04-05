@@ -468,10 +468,10 @@ function CountingMinutesI(str) {
    var minute = function(h, m, ampm) {
       var time = 0;
        if (ampm == "pm"){
-           time = eval("h + 12") * 60 + Number(m); //780 //need eval?
+           var bh = Number(h); //big hour
+           time = (bh + 12) * 60 + Number(m); //780
        } else {
            time = h * 60 + Number(m); //660
-           //console.log(time); //660
        }
     return time;
    };
@@ -479,12 +479,13 @@ function CountingMinutesI(str) {
   var time1 = minute(match[1], match[2], match[3]);
   var time2 = minute(match[4], match[5], match[6]);
   
-  //if(time2 < time1) time2 += 24 * 60;
-  
+  if(time2 < time1) {
+      time2 += 24 * 60;
+  }
   return time2 - time1;
 }
 
-CountingMinutesI("11:00am-1:00pm");
+CountingMinutesI("2:00am-1:00pm");
 	
 //22 MeanMode ??????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????
 /*Using the JavaScript language, have the function MeanMode(arr) take the array of numbers stored in arr and return 1 if the mode equals the mean, 0 if they don't equal each other (ie. [5, 3, 3, 3, 1] should return 1 because the mode (3) equals the mean (3)). The array will not be empty, will only contain positive integers, and will not contain more than one mode. 
