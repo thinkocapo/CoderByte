@@ -444,34 +444,14 @@ function DivisionStringified(num1,num2) {
 //21. Counting Minutes - Return the total number of minutes between two times. 9:00am-7:00am then the output should be 1320. Use exec //***************************PRACTICE AGAIN
 //REGEXP
 function CountingMinutesI(str) { 
-
-  // code goes here  
-  var match = /(\d{1,2}):(\d{1,2})(am|pm)-(\d{1,2}):(\d{1,2})(am|pm)/.exec(str);
-  
-  var minute = function(h, m, ampm) {
-    var time = (Number(h) % 12) * 60 + Number(m);
-    if(ampm == "pm") time += 12 * 60;
-    return time;
-  };
-  
-  var time1 = minute(match[1], match[2], match[3]);
-  var time2 = minute(match[4], match[5], match[6]);
-  
-  if(time2 < time1) time2 += 24 * 60;
-  
-  return time2 - time1;
-}
-/////////////////////////////////////////////////
-function CountingMinutesI(str) { 
   var match = /(\d{1,2}):(\d{1,2})(am|pm)-(\d{1,2}):(\d{1,2})(am|pm)/.exec(str);
   
    var minute = function(h, m, ampm) {
       var time = 0;
        if (ampm == "pm"){
-           var bh = Number(h); //big hour
-           time = (bh + 12) * 60 + Number(m); //780
+           time = (Number(h) + 12) * 60 + Number(m);
        } else {
-           time = h * 60 + Number(m); //660
+           time = h * 60 + Number(m);
        }
     return time;
    };
