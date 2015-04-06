@@ -1,7 +1,8 @@
 coderbyte_solved_MEDIUM
 <html>
 <script>
-//1. Prime Time - Have the function PrimeTime(num) take the num parameter being passed and return the string true if the parameter is a prime number, otherwise return the string false. The range will be between 1 and 2^16. 
+/*1. Prime Time - Have the function PrimeTime(num) take the num parameter being passed and return the string 
+true if the parameter is a prime number, otherwise return the string false. The range will be between 1 and 2^16. */
 //WILL'S
 function PrimeTime(num) { 
 	for (i=2;i<num-1;i++) {
@@ -12,7 +13,10 @@ function PrimeTime(num) {
     return true;
 }
 
-//2. Run Length - Have the function RunLength(str) take the str parameter being passed and return a compressed version of the string using the Run-length encoding algorithm. This algorithm works by taking the occurrence of each repeating character and outputting that number along with a single character of the repeating sequence. For example: "wwwggopp" would return 3w2g1o2p. The string will not contain any numbers, punctuation, or symbols. 
+/*2. Run Length - Have the function RunLength(str) take the str parameter being passed and return a compressed 
+version of the string using the Run-length encoding algorithm. This algorithm works by taking the occurrence of
+each repeating character and outputting that number along with a single character of the repeating sequence. 
+For example: "wwwggopp" would return 3w2g1o2p. The string will not contain any numbers, punctuation, or symbols. */
 //WILL'S
 function RunLength(str){
 var res = ''; //result
@@ -29,7 +33,9 @@ return res;
 }
 RunLength("wwwggopp"); //3w2g1o2p
 
-//3. Prime Mover - Using the JavaScript language, have the function PrimeMover(num) return the numth prime number. The range will be from 1 to 10^4. For example: if num is 16 the output should be 53 as 53 is the 16th prime number. 
+/*3. Prime Mover - Using the JavaScript language, have the function PrimeMover(num) return the numth prime number.
+The range will be from 1 to 10^4. For example: if num is 16 the output should be 53 as 53 is the 16th prime number. 
+*/
 //
 function IsPrime(num) { //tests if num is a prime #
 	for (i=2;i<num-1;i++) {
@@ -53,7 +59,10 @@ for(var i=2;i<10000;i++){
 }
 PrimeMover(16); //returns 53, the 16th prime number
 
-//4. Palindrome 2 - Have the function PalindromeTwo(str) take the str parameter being passed and return the string true if the parameter is a palindrome, (the string is the same forward as it is backward) otherwise return the string false. The parameter entered may have punctuation and symbols but they should not affect whether the string is in fact a palindrome. For example: "Anne, I vote more cars race Rome-to-Vienna" should return true. 
+/*4. Palindrome 2 - Have the function PalindromeTwo(str) take the str parameter being passed and return the string 
+true if the parameter is a palindrome, (the string is the same forward as it is backward) otherwise return the 
+string false. The parameter entered may have punctuation and symbols but they should not affect whether the string 
+is in fact a palindrome. For example: "Anne, I vote more cars race Rome-to-Vienna" should return true. */
 //WILL'S
 function PalindromeTwo(str) { 
 var string = str.toLowerCase();
@@ -75,7 +84,10 @@ var str = "Anne, I vote more cars race Rome-to-Vienna";
 console.log(str.match(/[a-z]/ig));
 */
 
-//5. Division - Using the JavaScript language, have the function Division(num1,num2) take both parameters being passed and return the Greatest Common Factor. That is, return the greatest number that evenly goes into both numbers with no remainder. For example: 12 and 16 both are divisible by 1, 2, and 4 so the output should be 4. The range for both parameters will be from 1 to 10^3. 
+/*5. Division - Using the JavaScript language, have the function Division(num1,num2) take both parameters 
+being passed and return the Greatest Common Factor. That is, return the greatest number that evenly goes into
+both numbers with no remainder. For example: 12 and 16 both are divisible by 1, 2, and 4 so the output should 
+be 4. The range for both parameters will be from 1 to 10^3. */
 //WILL'S
 function Division(num1,num2){
 var nums = [num1,num2];
@@ -109,7 +121,10 @@ function Division(num1,num2) {
   }
 }
 
-//6. String Scramble - Using the JavaScript language, have the function StringScramble(str1,str2) take both parameters being passed and return the string true if a portion of str1 characters can be rearranged to match str2, otherwise return the string false. For example: if str1 is "rkqodlw" and str2 is "world" the output should return true. Punctuation and symbols will not be entered with the parameters. 
+/*6. String Scramble - Using the JavaScript language, have the function StringScramble(str1,str2) 
+take both parameters being passed and return the string true if a portion of str1 characters can be 
+rearranged to match str2, otherwise return the string false. For example: if str1 is "rkqodlw" and str2 
+is "world" the output should return true. Punctuation and symbols will not be entered with the parameters. */
 //WILL'S
 function StringScramble(str1,str2) { 
 for (i=0;i<str2.length+2;i++){ 
@@ -124,7 +139,13 @@ return true;
 StringScramble(readline());           
 //googled 'javascript how to put a variable in a regex' http://stackoverflow.com/questions/494035/how-do-you-pass-a-variable-to-a-regular-expression-javascript
 
-//7. Arith Geo II - Using the JavaScript language, have the function ArithGeoII(arr) take the array of numbers stored in arr and return the string "Arithmetic" if the sequence follows an arithmetic pattern or return "Geometric" if it follows a geometric pattern. If the sequence doesn't follow either pattern return -1. An arithmetic sequence is one where the difference between each of the numbers is consistent, where as in a geometric sequence, each term after the first is multiplied by some constant or common ratio. Arithmetic example: [2, 4, 6, 8] and Geometric example: [2, 6, 18, 54]. Negative numbers may be entered as parameters, 0 will not be entered, and no array will contain all the same elements. 
+/*7. Arith Geo II - Using the JavaScript language, have the function ArithGeoII(arr) take the array of
+numbers stored in arr and return the string "Arithmetic" if the sequence follows an arithmetic pattern or 
+return "Geometric" if it follows a geometric pattern. If the sequence doesn't follow either pattern return -1.
+An arithmetic sequence is one where the difference between each of the numbers is consistent, where as in a
+geometric sequence, each term after the first is multiplied by some constant or common ratio. 
+Arithmetic example: [2, 4, 6, 8] and Geometric example: [2, 6, 18, 54]. Negative numbers may be entered as
+parameters, 0 will not be entered, and no array will contain all the same elements. */
 //same as from Easy Exercise...?
 //WILL'S
 function ArithGeoII(arr){
@@ -158,7 +179,11 @@ return true;
 }
 ArithGeoII([-2, 0, 2, 4]);
 
-//8. Array Addition - Using the JavaScript language, have the function ArrayAddition(arr) take the array of numbers stored in arr and return the string true if any combination of numbers in the array can be added up to equal the largest number in the array, otherwise return the string false. For example: if arr contains [4, 6, 23, 10, 1, 3] the output should return true because 4 + 6 + 10 + 3 = 23. The array will not be empty, will not contain all the same elements, and may contain negative numbers. 
+/*8. Array Addition - Using the JavaScript language, have the function ArrayAddition(arr) take the array of 
+numbers stored in arr and return the string true if any combination of numbers in the array can be added up
+to equal the largest number in the array, otherwise return the string false. For example: if arr contains 
+[4, 6, 23, 10, 1, 3] the output should return true because 4 + 6 + 10 + 3 = 23. The array will not be empty,
+will not contain all the same elements, and may contain negative numbers. */
 //same as Easy Exercise...?
 //WILL'S
 function ArrayAddition(arr) { 
@@ -179,13 +204,17 @@ if (tot >= arr[0]){
 }
 ArrayAddition([4, 6, 300, 10, 1, 3]);
 
-//9. Binary Converter - Using the JavaScript language, have the function BinaryConverter(str) return the decimal form of the binary value. For example: if 101 is passed return 5, or if 1000 is passed return 8. 
+/*9. Binary Converter - Using the JavaScript language, have the function BinaryConverter(str) return the 
+decimal form of the binary value. For example: if 101 is passed return 5, or if 1000 is passed return 8. */
 //WILL'S
 function BinaryConverter(str) { 
   return parseInt( str, 2 );
 }
    
-//10. Letter Count - Using the JavaScript language, have the function LetterCount(str) take the str parameter being passed and return the first word with the greatest number of repeated letters. For example: "Today, is the greatest day ever!" should return greatest because it has 2 e's (and 2 t's) and it comes before ever which also has 2 e's. If there are no words with repeating letters return -1. Words will be separated by spaces. 
+/*10. Letter Count - Using the JavaScript language, have the function LetterCount(str) take the str parameter
+being passed and return the first word with the greatest number of repeated letters. For example: "Today, 
+is the greatest day ever!" should return greatest because it has 2 e's (and 2 t's) and it comes before ever
+which also has 2 e's. If there are no words with repeating letters return -1. Words will be separated by spaces.*/ 
 //WILL'S
 function LetterCount(str) { 
   var words = str.split(' ');
@@ -202,7 +231,11 @@ function LetterCount(str) {
   return maxWord || -1;
 }
 
-//11. Caesar Cipher - Using the JavaScript language, have the function CaesarCipher(str,num) take the str parameter and perform a Caesar Cipher shift on it using the num parameter as the shifting number. A Caesar Cipher works by shifting each letter in the string N places down in the alphabet (in this case N will be num). Punctuation, spaces, and capitalization should remain intact. For example if the string is "Caesar Cipher" and num is 2 the output should be "Ecguct Ekrjgt". 
+/*11. Caesar Cipher - Using the JavaScript language, have the function CaesarCipher(str,num) take the str 
+parameter and perform a Caesar Cipher shift on it using the num parameter as the shifting number. A Caesar
+Cipher works by shifting each letter in the string N places down in the alphabet (in this case N will be num). 
+Punctuation, spaces, and capitalization should remain intact. For example if the string is "Caesar Cipher" 
+and num is 2 the output should be "Ecguct Ekrjgt". */
 //WILL'S
 function CaesarCipher(str,num) { 
 res = '';
@@ -229,7 +262,11 @@ return res;
 
 //12. Simple Mode ?????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????
 
-//13.Using the JavaScript language, have the function Consecutive(arr) take the array of integers stored in arr and return the minimum number of integers needed to make the contents of arr consecutive from the lowest number to the highest number. For example: If arr contains [4, 8, 6] then the output should be 2 because two numbers need to be added to the array (5 and 7) to make it a consecutive array of numbers from 4 to 8. Negative numbers may be entered as parameters and no array will have less than 2 elements. 
+/*13.Using the JavaScript language, have the function Consecutive(arr) take the array of integers
+stored in arr and return the minimum number of integers needed to make the contents of arr consecutive 
+from the lowest number to the highest number. For example: If arr contains [4, 8, 6] then the output 
+should be 2 because two numbers need to be added to the array (5 and 7) to make it a consecutive array 
+of numbers from 4 to 8. Negative numbers may be entered as parameters and no array will have less than 2 elements.*/ 
 //WILL'S
 function Consecutive(arr) { 
 arr.sort(function(a,b){return a-b});
@@ -240,7 +277,10 @@ var toAdd = dist - arr.length + 1; //or write return dist - arr.length + 1;
 return toAdd;
 }
 
-//14. Using the JavaScript language, have the function FormattedDivision(num1,num2) take both parameters being passed, divide num1 by num2, and return the result as a string with properly formatted commas and 4 significant digits after the decimal place. For example: if num1 is 123456789 and num2 is 10000 the output should be "12,345.6789". The output must contain a number in the one's place even if it is a zero. 
+/*14. Using the JavaScript language, have the function FormattedDivision(num1,num2) take both parameters being
+passed, divide num1 by num2, and return the result as a string with properly formatted commas and 4 significant
+digits after the decimal place. For example: if num1 is 123456789 and num2 is 10000 the output should
+be "12,345.6789". The output must contain a number in the one's place even if it is a zero. */
 //toFixed(4)
 //***********************************************PRACTICE*******************************************************************************
 function FormattedDivision(num1,num2) { 
@@ -272,7 +312,8 @@ function FormattedDivision(num1,num2) {
          
 }
 
-//15. Counting Minutes - Return the total number of minutes between two times. 9:00am-7:00am then the output should be 1320. Use exec
+/*15. Counting Minutes - Return the total number of minutes between two times. 9:00am-7:00am then the 
+output should be 1320. Use exec*/
 //REGEXP
 function CountingMinutesI(str) { 
 var match = /(\d{1,2}):(\d{1,2})(am|pm)-(\d{1,2}):(\d{1,2})(am|pm)/.exec(str);
@@ -296,7 +337,10 @@ if (t2 < t1){
  
 return t2 - t1; 
 
-//16. Permutation Step - Using the JavaScript language, have the function PermutationStep(num) take the num parameter being passed and return the next number greater than num using the same digits. For example: if num is 123 return 132, if it's 12453 return 12534. If a number has no greater permutations, return -1 (ie. 999). 
+/*16. Permutation Step - Using the JavaScript language, have the function PermutationStep(num) take 
+the num parameter being passed and return the next number greater than num using the same digits. 
+For example: if num is 123 return 132, if it's 12453 return 12534. If a number has no greater permutations,
+return -1 (ie. 999). */
 //?????????????????????????????????????????????????????????????????????????????????????????????????
 function PermutationStep(num) { 
   var numstring = num + "";
@@ -342,7 +386,9 @@ for (i=num.length;i>=0;i--){
     }
 */
 
-//17. Using the JavaScript language, have the function PrimeChecker(num) take num and return 1 if any arrangement of num comes out to be a prime number, otherwise return 0. For example: if num is 910, the output should be 1 because 910 can be arranged into 109 or 019, both of which are primes. 
+/*17. Using the JavaScript language, have the function PrimeChecker(num) take num and return 1 if any 
+arrangement of num comes out to be a prime number, otherwise return 0. For example: if num is 910,
+the output should be 1 because 910 can be arranged into 109 or 019, both of which are primes. */
 //?????????????????????????????????????????????????????????????????????????????????????????????????
 function PrimeChecker(theWord){
     
@@ -391,7 +437,14 @@ function PrimeChecker(theWord){
 }    
 }
 
-//18. Number Search - Using the JavaScript language, have the function NumberSearch(str) take the str parameter, search for all the numbers in the string, add them together, then return that final number divided by the total amount of letters in the string. For example: if str is "Hello6 9World 2, Nic8e D7ay!" the output should be 2. First if you add up all the numbers, 6 + 9 + 2 + 8 + 7 you get 32. Then there are 17 letters in the string. 32 / 17 = 1.882, and the final answer should be rounded to the nearest whole number, so the answer is 2. Only single digit numbers separated by spaces will be used throughout the whole string (So this won't ever be the case: hello44444 world). Each string will also have at least one letter. 
+/*18. Number Search - Using the JavaScript language, have the function NumberSearch(str) take the 
+str parameter, search for all the numbers in the string, add them together, then return that final 
+number divided by the total amount of letters in the string. For example: if str is "Hello6 9World 2, Nic8e D7ay!"
+the output should be 2. First if you add up all the numbers, 6 + 9 + 2 + 8 + 7 you get 32. 
+Then there are 17 letters in the string. 32 / 17 = 1.882, and the final answer should be rounded to the 
+nearest whole number, so the answer is 2. Only single digit numbers separated by spaces will be used throughout
+the whole string (So this won't ever be the case: hello44444 world). Each string will also have at 
+least one letter. */
 //WILL'S
 //The regex 'num' creates an array of all the numbers in the input string. The regex 'lett' creates an array of all the numbers in the input string.
 //The for loop adds up all the numbers into the variable nTotal (numbers Total)
@@ -410,7 +463,11 @@ return Math.round(nTotal /lett.length);
 }
 NumberSearch("H3ello9-9"); // 4
 
-//19. Triple Double - Using the JavaScript language, have the function TripleDouble(num1,num2) take both parameters being passed, and return 1 if there is a straight triple of a number at any place in num1 and also a straight double of the same number in num2. For example: if num1 equals 451999277 and num2 equals 41177722899, then return 1 because in the first parameter you have the straight triple 999 and you have a straight double, 99, of the same number in the second parameter. If this isn't the case, return 0. 
+/*19. Triple Double - Using the JavaScript language, have the function TripleDouble(num1,num2) take both 
+parameters being passed, and return 1 if there is a straight triple of a number at any place in num1 
+and also a straight double of the same number in num2. For example: if num1 equals 451999277 and num2 
+equals 41177722899, then return 1 because in the first parameter you have the straight triple 999 and 
+you have a straight double, 99, of the same number in the second parameter. If this isn't the case, return 0. */
 
 //WILL'S
 //Trip a regular expression that returns an array of any triplets found in num1, Doub is a regular expression that returns an array of any doublets found in num2
@@ -434,7 +491,11 @@ if (!trip || !doub) {
 
 TripleDouble(455532,4155); //1
 
-//20. Bracket Matcher - Using the JavaScript language, have the function BracketMatcher(str) take the str parameter being passed and return 1 if the brackets are correctly matched and each one is accounted for. Otherwise return 0. For example: if str is "(hello (world))", then the output should be 1, but if str is "((hello (world))" the the output should be 0 because the brackets do not correctly match up. Only "(" and ")" will be used as brackets. If str contains no brackets return 1. 
+/*20. Bracket Matcher - Using the JavaScript language, have the function BracketMatcher(str) take the str 
+parameter being passed and return 1 if the brackets are correctly matched and each one is accounted for.
+Otherwise return 0. For example: if str is "(hello (world))", then the output should be 1, but if str is 
+"((hello (world))" the the output should be 0 because the brackets do not correctly match up. Only "(" and ")"
+will be used as brackets. If str contains no brackets return 1. */
 //WILL'S
 function BracketMatcher(str) { 
   var lP = 0;
