@@ -164,7 +164,7 @@ var minutes = num % 60;
 TimeConvert(readline());           
 
 	
-//10. ALphabet Soup - alphabetize a string's chars 
+//10. ALphabet Soup - alphabetize a string's chars  
 function AlphabetSoup(str) { 
   var res=[];
   for(var i=0; i < str.length; i++) {
@@ -233,7 +233,8 @@ function VowelCount(str) {
   return str.match(/[aeiou]/g).length;       
 }
 	
-//13.Word Count - count the number of words in a string //do smtg for if there's a space at begining or end, as this will cause another word to be recorded..
+//13.Word Count - count the number of words in a string 
+//do smtg for if there's a space at begining or end, as this will cause another word to be recorded..
 //WILL'S ANSWER
 function WordCount(str) { 
     if (str == "") {
@@ -306,22 +307,6 @@ if (c == str.length) {
 //WILL'S
     return str.split("").reverse().join("") == str;
 
-
-//OLD
-	/*
-function Palindrome(str) { 
-  str = str.split(" ").join("");
-  var rev = str.split("").reverse().join("")
-  return str.localeCompare(rev) == 0;  //string localCompare
-}
-*/
-/* the above return statement is same as:
-if (str.localeCompare(pal) === 0){
-    return true;
-} else {
-    return false;
-}
-*/
 	
 //16.Arith Geo - Return "arithmetic" if the #'s follow an arithmetic sequence, return "gemoetric" if the #'s follow a geometric sequence. [2, 4, 6, 8] and or [2, 6, 18, 54]. Negative numbers may be entered as parameters, 0 will not be entered, and no array will contain all the same elements. */
 //Arith Geo - 2 More Functions
@@ -342,7 +327,7 @@ for (i=1; i<arr.length-1; i++){
         return false;
     }
 }
-return true;
+return true; //for my alternative answer below, this would return 'arithmetic'
 }
 
 function IsGeom(arr){
@@ -356,6 +341,9 @@ return true;
 }
 
 ArithGeo([2,4,6,8]);
+
+//OR set it up like... :)
+ return isArr(arr) || isGeo(arr) || 0;
 	
 //17. Array Addition I - return true if any combination of numbers in the array can be added up to equal the largest number in the array, otherwise return the string false. For example: if arr contains [4, 6, 23, 10, 1, 3] the output should return true because 4 + 6 + 10 + 3 = 23. The array will not be empty, will not contain all the same elements, and may contain negative numbers. 
 function ArrayAddition(arr) { 
@@ -373,8 +361,20 @@ if (tot >= arr[0]){
 }
 }
 ArrayAddition([4, 6, 300, 10, 1, 3]);
+
+//OR
+function AAI(arr){
+   var max = arr.sort(function(a,b){return b-a}).shift();
+    var sum = arr.reduce(function(a,b){return a+b});
+    
+    if (sum >= max){
+        return "equal or greather than the largest...";
+    }
+}
+
+AAI([4, 6, 29, 10, 1, 3])
 		
-*//18. Letter Count I
+//18. Letter Count I
 /*return the first word with the greatest number of repeated letters. For example: "Today, is the greatest day ever!" should return greatest because it has 2 e's (and 2 t's) and it comes before ever which also has 2 e's. If there are no words with repeating letters return -1. Words will be separated by spaces.*/
 	
 //
@@ -386,11 +386,11 @@ function LetterCountI(str) {
     if(hi !== null){ //need this, bc when hi will be equal to null when there are no repeating letters!
       if(hi.length>maxLength){
         maxLength = hi.length;
-        var maxWord = words[i]; 
+        var maxWord = words[i]; //or index = i;
       }
     }
   }
-  return maxWord || -1;
+  return maxWord || -1; //or return words[i];
 }
 
 /*
@@ -472,35 +472,81 @@ function CountingMinutesI(str) {
 
 CountingMinutesI("2:00am-1:00pm");
 	
-//22 MeanMode ??????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????
+//22 MeanMode
 //Using the JavaScript language, have the function MeanMode(arr) take the array of numbers stored in arr and return 1 if the mode equals the mean, 0 if they don't equal each other (ie. [5, 3, 3, 3, 1] should return 1 because the mode (3) equals the mean (3)). The array will not be empty, will only contain positive integers, and will not contain more than one mode. 
+//WILL'S
+    //IF the object doesn't have the 'property' yet, then add it to the         object
+    //ELSE if the object already has the property, then +1 it value (which      acts as the counter)
 
-
-function MeanMode(arr) { 
-  var res={};
-  var max = 0;
-  var mode = 0;
-  var mean = 0;
-  var sum = 0;
-  for(var i=0;i<arr.length;i++){
-    sum+=arr[i];
-  }
-  mean = parseInt(sum/arr.length);
-  arr.forEach(function(el){
-    if(res[el]) {
-      res[el]++;
-    } 
-    else{
-      res[el] = 1;
+	//re-check all of the 'properties' in the object and see if their values     //are greater than the existing max value
+function MeanMode(array){
+    if (Mode(array)==Mean(array)){
+        return 1;
+    } else {
+        return 0;
     }
-    if(res[el]>max){
-      max = res[el];
-      mode = el;
-    } 
-  });
-    return mode==mean ? 1:0;        
 }
-	
+
+function Mode(array){
+var numObj = {};
+var max = 0;
+var index = '';
+for (i=0; i<array.length; i++){
+    if (!numObj.hasOwnProperty(array[i])) {
+        numObj[array[i]] = 1;
+    } else {
+        numObj[array[i]] += 1;
+    }
+    for (var prop in numObj) {
+    if (numObj[prop] > max) {
+        max = numObj[prop];
+        index = prop;
+    }
+}
+}
+return index;
+}
+
+function Mean(array){
+    return array.reduce(function(a,b){return a+b}) / array.length;
+}
+MeanMode([5,3,3,3,1]); //returns true
+
+//OTHER USER
+function MeanMode(arr) { 
+var modeCount =0;
+var count = 0;
+var mode = 0;
+var mean = 0;
+for (var i=0; i<arr.length; i++){
+mean = mean + arr[i];
+
+}
+mean = mean / arr.length;
+
+for (var i = 0; i<arr.length; i++){
+for(var j = i+1; j<arr.length; j++){
+if (arr[i] == arr[j]){
+count++;
+}
+}
+if (count > modeCount){
+modeCount = count;
+mode = arr[i];
+
+}
+count = 0;
+
+}
+if (mean == mode){
+return 1;
+}else {
+return 0;
+} 
+}
+
+MeanMode(readline());     
+
 *//23. DashInsert - insert dashes between every 2 odd numbers
   function DashInsert(num){
   var ans=num.toString().split("");
@@ -526,7 +572,9 @@ return swap;
 *//
 	function SwapCase(str) { 
 	  return str.replace(/[a-z]/ig,function(c){
-	    if(c == c.toUpperCase()) return c.toLowerCase() //won't work if you include {} curly brackets. so multiple return statements?
+	    if(c == c.toUpperCase()) {
+			return c.toLowerCase()
+		}
 	    return c.toUpperCase();
 	  });
 	}
@@ -612,16 +660,6 @@ function PowerofTwo(num){
     return false;
 }
 
-//WILL'S
-function PowersofTwo(num) { 
-	var end = false;
-for (i=1; i<num; i++){
- if (Math.pow(2,i) == num) {
-     end = true;
- }
-}
-return end;
-}
 //28. Additive Persistence
 /*return the number of times you must add the digits in num until you reach a single digit. For example: if num is 2718 then your program should return 2 because 2 + 7 + 1 + 8 = 18 and 1 + 8 = 9 and you stop at 9.*/
   ////??????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????
@@ -658,21 +696,41 @@ check(res); //function call
 }
 MultiplicativePersistence(123);                            
 	
-//30. Off Line Minimum - The input will be in the following format: ["I","I","E","I",...,"E",...,"I"] where the I's stand for integers and the E means take out the smallest integer currently in the whole set. When finished, your program should return that new set with integers separated by commas. For example: if strArr is ["5","4","6","E","1","7","E","E","3","2"] then your program should return 4,1,5.  (myArray,finall arra. push. shift)*/
-////??????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????
-	function OffLineMinimum(strArr) { 
-	  var myArr = [];
-	  var finalArr = [];
-	  for(var i=0;i<strArr.length;i++){
-	    if(strArr[i].match(/\d+/g)){
-	      myArr.push(strArr[i])
-	    }
-	    else{
-	      myArr.sort(function(a,b){return a-b});
-	      finalArr.push(myArr.shift());
-	    }
-	  }
-	  return finalArr.join(',');
-	}	
-*/
+//30. Off Line Minimum - The input will be in the following format: ["I","I","E","I",...,"E",...,"I"] where the I's stand for integers and the E means take out the smallest integer currently in the whole set. When finished, your program should return that new set with integers separated by commas. For example: if strArr is ["5","4","6","E","1","7","E","E","3","2"] then your program should return 4,1,5.*/
+
+//WILL'S
+function OffLineMinimum(array) { 
+	var aset = [];
+	var res = '';
+
+	for (i=0; i<array.length; i++){
+		if (aset.indexOf(array[i]) === -1 && array[i] !== 'E'){
+			aset.push(array[i]);
+		} else if (array[i] == 'E'){
+		    res += aset.sort().shift();
+	      	if (array.lastIndexOf("E") !== i){
+		    	res += ",";
+	        } else {}
+		}
+	}
+	return res;
+}	
+OffLineMinimum(["5","4","6","E","1","7","E","E","3","2"]); //returns 4,1,5
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </script>

@@ -1,0 +1,420 @@
+<html>
+<script>
+//4.3.2 LISTS - not Understanding
+
+
+	/* 2.1 LOOPING A TRIANGLE
+	looping a triangle
+	for (var line = "#"; line.length < 8; line += "#")
+	console.log(line);
+	*/
+	
+	/* 2.2 FIZZBUZZ Attempt1
+	var boo = 1;
+	while (boo <= 100)
+		{
+			if ((boo % 3 ==0) && (boo % 5 ==0))
+			{
+				console.log("FizzBuzz");
+			} else if (boo % 3 == 0) {
+				console.log("fizz");
+			} else if (boo % 5 == 0){
+				console.log("buzz");
+			} else {
+				console.log(boo);
+			}
+			boo += 1;
+		}
+	// 2.2 FIZZBUZZ Attempt2
+	for (n =1; n < 101; n++) {
+		if ((n % 3 ==0) && (n%5 == 0)) {
+			console.log("FizzBuzz");}
+		else if (n % 3 ==0) {
+			console.log("Fizz");}
+		else if (n % 5 ==0) {
+			console.log("Buzz");}
+		else {
+			console.log(n);}
+	}
+	//2.2 FIZZBUZZ Attempt3 CORRECT
+	for (n=1; n<101;n++){
+		output = "";
+		if (n % 3 ==0) {
+			output += "Fizz";
+		}
+		if (n % 5 ==0) {
+			output += "Buzz";
+		}
+		console.log(output || n);
+	}
+	*/
+	
+	/*2.3 Chess Board Attempt1 GREAT, SHORT!
+	var size = 8;
+	for (i = 1; i <= size; i++) {
+		if ((i % 2 == 0.5) || (i % 2 == 0)) {
+			console.log("# # # # ")
+		} else {
+			console.log(" # # # #");
+		}
+	}
+	*/
+	
+	/*
+	//2.3 Chess Board Attempt2, USES A MULTI-DEMENSIONAL ARRAY, BETTER!
+	var size = 8;
+	var board = "";
+	for (y = 0; y < size; y++) {
+		for (x = 0; x < size; x++)
+		{
+			if ((x + y) % 2 == 0) // THE PRESENCE OF THE '#' CHARACTER OR BLANK SPACE '' IS DETERMINED BY A MATHEMATICAL RELATION BETWEEN THE X AND Y COORDINATES
+				board += " ";
+			 else 
+				board += "#";
+		} 
+		board += "\n";
+	}//THE WHOLE STRING (the entire Chessboard including linebreaks) GETS BUILT FIRST, AND THEN CONSOLE.LOG IS RUN ON IT AT THE END!!!!!!
+	console.log(board);
+	*/
+	
+	//3.1 Minimum
+	function min(a,b) { //FROMT THE MATH OBJECT...
+		if (a < b)
+			return A
+			else
+				return B
+	} //from the Math object...
+	
+	var bint = 1
+	console.log(Math.min(5,3,2,bint,10));
+
+	
+	//3.2 Recursion
+	function isEven(num){
+		if (num==0)
+			return true
+		else if (num==1)
+			return false
+		else if (num !== 0)
+			return isEven(num - 2);
+	}
+	console.log(isEven(Math.abs(-40)));
+	//the # decrements from 50 to 0, by 2 digits at a time.
+	
+
+	//3.3 BEAN COUNTING
+	//WILL'S
+	/*var counted= 0;
+	var funky = function(string, char) {
+		for (i=0; i<string.length; i++) {
+			if (string.charAt(i) == char) {
+				counted += 1;
+			}
+		}
+		console.log(counted);
+	}
+	funky("yaBbsuyy", "y");
+	*/
+	
+	//3.3 BEAN COUNTING, E.J.'s way...
+	function countChar(string, ch) {
+  	  var counted = 0;
+  	for (var i = 0; i < string.length; i++)
+    	if (string.charAt(i) == ch)
+    		counted += 1;
+  	return counted;
+	}
+
+	function countBs(string) {
+		return countChar(string, "B");
+	}
+
+	countBs("BBC"); //funciton that counts a specific letter already defined by function
+	// → 2
+	countChar("kakkerlak", "k"); //function that counts a letter definied by user
+	// → 4
+
+
+
+/*4.1.1 SUM OF A RANGE (this code produces only the list)
+//
+function list(start, end) {
+		var bullets = [];
+	for (i=start; i<=end; i++) {
+		bullets.push(i); //Parenthesis here not Brackets
+	}
+	//console.log(bullets);
+	return bullets
+}
+list(1,10);
+*/
+
+//4.1.2 SUM OF A RANGE
+	/*
+var bullets = [];
+function list(start, end) {
+	for (i=start; i<=end; i++) {
+			bullets.push(i); //Parenthesis here not Brackets..because this is a method here!
+		}
+		return bullets
+	}
+function sum(arguments) { //need 'arguments' here...
+	var total = 0;
+	for (i=0; i < arguments.length; i++) {
+		total += arguments[i] 
+	}
+	return total
+}
+sum(list(1,10));
+*/
+
+/*4.1.3
+var bullets = [];
+function list(start, end, step) {
+	for (i=start; i<=end; i+=step) {
+			bullets.push(i);
+		}
+		return bullets
+	}
+function sum(arguments) { //need 'arguments' here...
+	var total = 0;
+	for (i=0; i < arguments.length; i++) {
+		total += arguments[i] 
+	}
+	return total
+}
+sum(list(1,10, 2);
+*/
+
+4.1.4
+var bullets = [];
+function list(start, end, step) {
+	if (start < end) {
+		for (i=start; i<=end; i+=step) {
+			bullets.push(i);
+		}
+		return bullets
+	}
+	else {
+		for (i=start; i>=end; i+=step) {
+			bullets.push(i);
+		}
+		return bullets
+	}
+}
+function sum(arguments) { //need 'arguments' here...
+	var total = 0;
+	for (i=0; i < arguments.length; i++) {
+		total += arguments[i] 
+	}
+	return total
+}
+console.log(sum(list(5,2,-1)));
+
+
+//4.2.1. REVERSE AN ARRAY, doesn't change the original array, only returns a new one.
+/*
+function reverseArray(arguments) { //reverses the elements in an array, but doesn't CHANGE the original array (the object array passed to through as an Argument?)
+	newarray = [];
+	for (i=0, y=arguments.length-1; i<arguments.length ;i++, y--) { //y=arguments.length;
+		newarray[i] = arguments[y]; // or newarray.push(arguments[y]);
+	}
+	return newarray
+}
+reverseArray(["A","B","C"])
+*/
+
+/*4.2.2 REVERSE AN ARRAY
+var arrayvalue = ["1","2","3","4","5"];
+var swaparray = [];
+
+function reverseArrayInPlace(arguments) {
+	for (i=0, y=arguments.length-1; i<arguments.length ;i++, y--) {
+		swaparray.push(arguments[y]);
+	} 
+	return arrayvalue = swaparray;
+}
+reverseArrayInPlace(arrayvalue);
+arrayvalue;*/
+
+
+//4.2.3 REVERSE AN ARRAY
+//Using the UNSHIFT method to insert each new element at the start (0th index) of the array, note it doens't need a 'y' counter variable in the 'for' here!
+var arrayvalue = ["1","2","3","4","5"];
+var swaparray = [];
+
+function reverseArrayInPlace(arguments) {
+	for (i=0; i<arguments.length ;i++) {
+		swaparray.unshift(arguments[i]);
+	} 
+	return arrayvalue = swaparray;
+}
+reverseArrayInPlace(arrayvalue);
+console.log(arrayvalue);
+
+
+//4.3.1 A LIST
+/*BOOK'S SOLUTION
+function ArrayToList (array) { 
+	var list = null 
+	for (i=array.length - 1; i>=0; i--){
+		list = {value: array[i], rest: list};
+	return list;	
+	}
+	
+	//list = {value: arg1, rest: {value: arg2, rest: null}};
+	//return list 
+}
+console.log(ArrayToList([10,20]));
+// {value: 10, rest: {value: 20, rest: null)}
+*/
+
+
+//4.3.2 LISTS - ??????????????????????
+function ArrayToList (array) { //need arg1, arg2 as arguments here? or not?
+	var list = null //Why null? don't have to declare it an Object or Array/List? {} []
+	for (i=array.length - 1; i>=0; i--){
+		list = {value: array[i], rest: list};
+	}
+	return list;	
+	//list = {value: arg1, rest : {value: arg2, rest: {value: arg3, rest: null}}};
+}
+
+function listToArray(list) {
+  var array = [];
+  for (var node = list; node; node = node.rest)
+    array.push(node.value);
+  return array;
+}
+
+console.log(ArrayToList([10, 20])); 
+console.log(listToArray(ArrayToList([10, 20, 30]))); //??????????????????????????????
+
+//4.3.3. LISTS_PREPEND 
+function prepend(value, list) {
+  return {value: value, rest: list};
+}
+//console.log(prepend(5, (ArrayToList([10, 20]))));
+//ouput is { value: 5, rest: { value: 10, rest: { value: 20, rest: null } } }
+
+//4.3.4 LISTS_NTH
+/*
+function nth(list, n) {
+    console.log(list.rest);//
+  if (!list)
+    return undefined;
+  else if (n == 0)
+    return list.value;
+  else
+    return nth(list.rest, n - 1);
+}
+
+console.log(nth(arrayToList([10, 20, 30]), 2));
+//30
+//{value:10, rest:{value:20, rest:{value:30, rest:null}}}
+*/
+
+//4.4 Deep Comparison_Wills Attempt
+function deepEqual (v1, v2) {
+    if ((typeof(v1) == 'object') && (typeof(v2) == 'object') && (v1 !== null) && (v2 !== null)) {
+        for (variable in v1) {
+            if (v2[variable]) {
+				//console.log("yep"); yep will display multiple times.
+				return true; //so a for...in statement can return true multiple times?
+			}
+		}
+	}
+}
+var obj = {here: {is: "an"}, object: 2};
+console.log(deepEqual(obj, obj)); //true
+console.log(deepEqual(obj, {here: 1, object: 2})); //false
+console.log(deepEqual(obj, {here: {is: "an"}, object: 2})); //true
+
+				
+//4.4 Deep Comparison_BOOKS SOLUTION
+//too complicated?
+function deepEqual(a, b) {
+  if (a === b) return true;
+  
+  if (a == null || typeof a != "object" ||
+      b == null || typeof b != "object")
+    return false;
+  
+  var propsInA = 0, propsInB = 0;
+
+  for (var prop in a)
+    propsInA += 1;
+
+  for (var prop in b) {
+    propsInB += 1;
+    if (!(prop in a) || !deepEqual(a[prop], b[prop]))
+      return false;
+  }
+
+  return propsInA == propsInB;
+}
+
+var obj = {here: {is: "an"}, object: 2};
+console.log(deepEqual(obj, obj)); //true
+console.log(deepEqual(obj, {here: 1, object: 2})); //false
+console.log(deepEqual(obj, {here: {is: "an"}, object: 2})); //true
+
+//5.1 Flattening Arrays_Will's Method_WORKS
+//use reduce method in combination with concat to "flatten" and array of arrays that has all the elements of the input arrays
+var arrays = [[1, 2, 3], [4, 5], [6]];
+
+function reduce(array, concater, start) {
+	var current = start;
+	for (i=0; i<array.length; i++)
+		current = concater(current, array[i]);
+	return current;
+}
+
+var arrays = [[1, 2, 3], [4, 5], [6]];
+console.log(reduce(arrays, function (a,b){
+    return a.concat(b);},[0]));
+//[1, 2, 3, 4, 5, 6]
+
+
+//5.1 Flattening Arrays Book's Method
+//use reduce method in combination with concat to "flatten" and array of arrays that has all the elements of the input arrays
+//var arrays = [[1, 2, 3], [4, 5], [6]];
+var arrays = [[1, 2, 3], [4, 5], [6]];
+
+console.log(arrays.reduce(function(flat, current) { //can also write (function(a,b) {
+  return flat.concat(current);
+}, [])); //3rd argument
+//[1, 2, 3, 4, 5, 6]
+
+
+//5.2 Mother-Child Age Difference
+function average(array) {
+  function plus(a, b) { return a + b; }
+  return array.reduce(plus) / array.length;
+}
+
+var byName = {};
+ancestry.forEach(function(person) {
+  byName[person.name] = person;
+});
+
+var differences = ancestry.filter(function(person) {
+  return byName[person.mother] != null;
+}).map(function(person) {
+  return person.born - byName[person.mother].born;
+});
+
+console.log(average(differences));
+// → 31.2
+
+
+
+
+//5.3
+
+//5.4
+
+</script>
+</html>
+
+
