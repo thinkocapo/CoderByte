@@ -4,7 +4,7 @@ function FirstReverse(str){
 	 return str.split("").reverse().join("");
  }
 //OR
-function FirstFactorial(str){
+function FirstReverse(str){
 var res = ''; 
   for (var i = str.length - 1; i >= 0; i--) {
     res += str[i];
@@ -15,18 +15,17 @@ FirstFactorial("abcdefgh"); //returns 'hgfedcba'
 
 //2. FIRST FACTORIAL - find the factorial of a number
 //WILL'S While..Loop, countdown
-function FirstFactorial(num) { 
-	var count = num - 1;
-	var newnum = num;
-		
-	while (count > 0) {
-		newnum *= count ;
-		count -= 1;
-	}
-	return newnum;
+function FF(num){
+    var ans = 1;
+    while (num > 1){
+        ans *= num;
+        num -= 1;
+    }
+    return ans;
 }
+FF(5); //120
 
-*//RECURSIVE
+//RECURSIVE
 function FirstFactorial(num) { 
   if (num > 1) { //greater than 1 and not 0, because on the last recursive call it would be 1 - 1, and then pass 0 to the next iteration to be multiplied!
     num = num * FirstFactorial(num - 1);
@@ -49,15 +48,7 @@ return parts[Index];
     .shift();
 //or
 	return str.split(" ").sort(function(a,b){return b.length - a.length}).shift();
-	
-	//WILL'S
-	function LongestWord(str){
-	    var arr = str.split(" ");
-	    arr.sort(function(a,b){return b.length - a.length});
-	    return arr[0];
-    
-	}
-	LongestWord("where is the loooooongest word?");
+
 
 //4. Letter Changes - Change all letters in a string to the next one in the alphabet. If the new letter is a vowel, then Capitalize it.
   function LetterChanges(str) { 
@@ -76,6 +67,10 @@ return parts[Index];
     }
     return res;       
 }
+
+    
+}
+LC("how are you");
 
 //5. Simple Adding - Given a number, add all the numbers below it
 //WILL'S
@@ -113,41 +108,20 @@ for (i=0;i<arr.length;i++){
 }
 return res;
 }
-  
+ 
 //7. Simple Symbols - letters must be surrounded by '+' (ie. ++d+===+c++==a) returns false
-  var arr=str.split("");
-  for (var i=0; i<arr.length; i++){ //testing for all the false scenarios...first
-    if (arr[i].match(/[a-z]/gi)!=null){
-      if (i==0 || i == arr.length-1){
-        return false;
-      }
-      else{
-        if (arr[i-1]!="+" || arr[i+1]!="+"){
-          return false;
-        }
-      }
-      
-    }
-  }
-  return true;      
-}
-
-//WILL'S
 function SS(str){
-console.log(/\+/.test(str[2]));
-
-for (i=0; i<str.length;i++){
-    if (/[a-z]/.test(str[i]) === true) {
-        if (/\+/.test(str[i-1]) ===true && /\+/.test(str[i+1]) === true){
-            
-        } else {return false;}
-}
+for (i=0;i<str.length;i++){
+    if (/\w/.test(str[i])){
+        if (str[i-1]== '+' && str[i+1] == '+'){} else {
+            return false;
+        }
+    }
 }
 return true;
+    
 }
-
-SS("++d+===+c++==+a+");
-
+SS("+a+d+===+c++==+a+"); //true
 
 //8. Check Nums - true if num2>num1, otherwise false. -1 if equal
 //EASY
@@ -161,10 +135,11 @@ var hours = Math.floor(num / 60);
 var minutes = num % 60;
 	return hours + ":" + mins;
 }
-TimeConvert(readline());           
+TimeConvert(95); //35 minutes           
 
 	
 //10. ALphabet Soup - alphabetize a string's chars  
+//Re-Write without Methods...
 function AlphabetSoup(str) { 
   var res=[];
   for(var i=0; i < str.length; i++) {
@@ -194,30 +169,13 @@ function ABCheck(str) {  //question doesn't ask for all cases of a...b or like "
 	}
 }
 
-//WILL'S
-function ABC(str){
-
-for (i=0;i<str.length-1;i++){
-    
-if (str[i] == 'a'){
-    if(/a...b/.test(str) === true)
-    {} else {return false;}
-}
-
-if (str[i] == 'b')
-    if(/b...a/.test(str) === true)
-    {} else {return false;}
-
-}
-return true;
-}
 
 //12. VOWEL COUNT - Return the number of vowels in the string
 //WILL'S
 function VowelCount(str) { 
 count = null;
 for(i=0;i<str.length;i++) {
-    if (str[i]=='a' |
+    if (str[i]=='a' | //or use /a|e|i|o|u/g.test(str[i])
         str[i]=='e' |
         str[i]=='i' |
         str[i]=='o' |
@@ -273,10 +231,8 @@ function WordCount(str) {
 function ExOh(str) {
 return str.match(/x/ig).length == str.match(/o/ig).length;
 }
-
 //WILL'S
 function ExOh(str){
-
 if (str.match(/x/g).length == str.match(/o/g).length){
     return true;
 } else {return false}
@@ -284,34 +240,31 @@ if (str.match(/x/g).length == str.match(/o/g).length){
 ExOh("xoo"); //false                            
 	
 //15. Palindrome - check if a string input reads the same forwards as it does backwards
-//WILL'S
-function Palindrome(str) { 
-
-var oristr = str.split('');
-var revstr = str.split('').reverse();
-var c = 0;
-
-for(i=0; i<str.length; i++) {
-    if (oristr[i]==revstr[i]) { //doesn't work because 'c' is in position 2 in origstr, and position 3 in the other
-        c++;
+//WILL'S, without LIBRARIES
+function Palindrome(str){
+for (i=0,y=str.length-1;i<str.length;i++,y--){
+    if (str[i]==str[y]){} else{
+        return false;
     }
 }
-if (c == str.length) {
-    return true;
-} else {
-    return false;
+return true;
 }
-}
+Palindrome("aab1bccddeef4feeddccb1baa");
 
-//
+//WILL'S
+	function Palindrome(str){
+	var original = str.toLowerCase();
+	var reverse = str.toLowerCase().split("").reverse("").join("");
+	return original == reverse;
+	}
+	Palindrome("aab2bccddeef1feeddccb2baa");
 //WILL'S
     return str.split("").reverse().join("") == str;
-
 	
 //16.Arith Geo - Return "arithmetic" if the #'s follow an arithmetic sequence, return "gemoetric" if the #'s follow a geometric sequence. [2, 4, 6, 8] and or [2, 6, 18, 54]. Negative numbers may be entered as parameters, 0 will not be entered, and no array will contain all the same elements. */
 //Arith Geo - 2 More Functions
 function ArithGeo(arr){
-	if (IsArith(arr)){
+	if (IsArith(arr)){ // or set it up like, return isArr(arr) || isGeo(arr) || -1;
     	return 'Arithmetic';
 	}else if (IsGeom(arr)){
     	return 'Geometric';
@@ -322,8 +275,8 @@ function ArithGeo(arr){
 
 function IsArith(arr){
 var arith = arr[1] - arr[0];
-for (i=1; i<arr.length-1; i++){
-    if (arr[i+1] - arr[i] == arith){} else {
+for (i=2; i<arr.length; i++){
+    if (arr[i] - arr[i-1] == arith) {} else {
         return false;
     }
 }
@@ -332,23 +285,22 @@ return true; //for my alternative answer below, this would return 'arithmetic'
 
 function IsGeom(arr){
 geom = arr[1] / arr[0];
-for (i=1; i<arr.length-1; i++){
-    if (arr[i+1] / arr[i] == geom){} else {
+for (i=2; i<arr.length; i++){
+    if (arr[i] / arr[i-1] == geom){} else {
         return false;
     }
 }
 return true;
 }
-
 ArithGeo([2,4,6,8]);
 
 //OR set it up like... :)
- return isArr(arr) || isGeo(arr) || 0;
+ return isArr(arr) || isGeo(arr) || -1;
 	
 //17. Array Addition I - return true if any combination of numbers in the array can be added up to equal the largest number in the array, otherwise return the string false. For example: if arr contains [4, 6, 23, 10, 1, 3] the output should return true because 4 + 6 + 10 + 3 = 23. The array will not be empty, will not contain all the same elements, and may contain negative numbers. 
 function ArrayAddition(arr) { 
 var tot = 0;
-arr.sort(function(a,b){return b-a});
+arr.sort(function(a,b){return b-a}); /
 
 for (i=1;i<arr.length;i++){
     tot += arr[i];
@@ -364,10 +316,10 @@ ArrayAddition([4, 6, 300, 10, 1, 3]);
 
 //OR
 function AAI(arr){
-   var max = arr.sort(function(a,b){return b-a}).shift();
+   var high = arr.sort(function(a,b){return b-a}).shift();
     var sum = arr.reduce(function(a,b){return a+b});
     
-    if (sum >= max){
+    if (sum >= high){
         return "equal or greather than the largest...";
     }
 }
@@ -403,11 +355,11 @@ Match the same characters that were matched when group number n was first matche
 http://www.regular-expressions.info/lookaround.html
 */
 	
-*//19.Second GreatLow
+//19.Second GreatLow
 //Return the second lowest number and second highest numbers of an Array. Be able to do this for [80,80] which returns "80 80" and [5,-4,-4,10,2] which returns "2 5"
 //WILL'S NEW SOLUTION ON APRIL 1ST - works for [5,-4,-4,10,2]
 function SecondGreatLow(array){
-var arr = array.sort(function(a,b){return a - b});
+	var arr = array.sort(function(a,b){return a - b}); //OR WRITE array = array.sort(function(a,b){return a-b}), this way don't have to create a 2nd variable
 //add condition for if array is [80,80];
 var init = arr[0];
 var secondlow = 0;
@@ -425,8 +377,7 @@ for (i=arr.length-1;i>=0;i--){
         break;
     }
 }
-var output = [secondlow, secondhigh];
-return output.join(' ');
+return [secondlow,secondhihg].join(",");
 }
 SecondGreatLow([5,-4,-4,10,2]); //returns 2, 5
 
@@ -434,7 +385,7 @@ SecondGreatLow([5,-4,-4,10,2]); //returns 2, 5
 if(arr.length == 2)
 	return "" + Math.max(arr[0],arr[1]) + " " + Math.min(arr[0],arr[1]); */
 	
-*//20. Division Stringifield - Divide num1 by num2, and return the numerical result as a string with properly formatted commas*/
+//20. Division Stringifield - Divide num1 by num2, and return the numerical result as a string with properly formatted commas*/
 //DONE
 function DivisionStringified(num1,num2) { 
   var num = Math.round(num1/num2).toString().split("");
@@ -470,7 +421,7 @@ function CountingMinutesI(str) {
   return time2 - time1;
 }
 
-CountingMinutesI("2:00am-1:00pm");
+CountingMinutesI("9:00am-7:00am"); //1320
 	
 //22 MeanMode
 //Using the JavaScript language, have the function MeanMode(arr) take the array of numbers stored in arr and return 1 if the mode equals the mean, 0 if they don't equal each other (ie. [5, 3, 3, 3, 1] should return 1 because the mode (3) equals the mean (3)). The array will not be empty, will only contain positive integers, and will not contain more than one mode. 
@@ -512,42 +463,9 @@ function Mean(array){
 }
 MeanMode([5,3,3,3,1]); //returns true
 
-//OTHER USER
-function MeanMode(arr) { 
-var modeCount =0;
-var count = 0;
-var mode = 0;
-var mean = 0;
-for (var i=0; i<arr.length; i++){
-mean = mean + arr[i];
+  
 
-}
-mean = mean / arr.length;
-
-for (var i = 0; i<arr.length; i++){
-for(var j = i+1; j<arr.length; j++){
-if (arr[i] == arr[j]){
-count++;
-}
-}
-if (count > modeCount){
-modeCount = count;
-mode = arr[i];
-
-}
-count = 0;
-
-}
-if (mean == mode){
-return 1;
-}else {
-return 0;
-} 
-}
-
-MeanMode(readline());     
-
-*//23. DashInsert - insert dashes between every 2 odd numbers
+//23. DashInsert - insert dashes between every 2 odd numbers
   function DashInsert(num){
   var ans=num.toString().split("");
   for (i=0;i<ans.length-1;i++) {
@@ -569,13 +487,13 @@ for (i=0;i<str.length;i++){
 return swap;   
 }	
 
-*//
+//
 	function SwapCase(str) { 
-	  return str.replace(/[a-z]/ig,function(c){
-	    if(c == c.toUpperCase()) {
-			return c.toLowerCase()
+	  return str.replace(/[a-z]/ig,function(x){
+	    if(x == x.toUpperCase()) {
+			return x.toLowerCase()
 		}
-	    return c.toUpperCase();
+	    return x.toUpperCase();
 	  });
 	}
 	
@@ -601,7 +519,7 @@ return swap;
 	//OR return eval(nums.join('+'))
 	}
 
-*//26. Third Greatest
+//26. Third Greatest
 /*Return third largest word in a string. ["hello", "world", "before", "all"] returns "before". ["hello", "world"] are both 5, but the output should be world because it appeared as the last 5 letter word in the array[I can accomodate this? Find a solution that does?]. If strArr was ["hello", "world", "after", "all"] returns "after" because its the 3rd word. (The array will have at least three strings and each string will only contain letters.*/
 /*
 WILL'S SOLUTION:
@@ -610,8 +528,22 @@ First, sort the array of strings by the length of its strings, so that "x" is in
 Next, the For statement records +1 to the counter variable for every time the length of the next element in the array is not equal to the length of the current element being iterated. This is important, because if consecutive elements are of equal length to each other, then you don't want your counter variable recording that we're advancing towards the "third largest" one.
 
 Finally, when the counter variable reaches a value of 2 (which means that twice we've seen an increase in the length of the string being iterated, meaning we're now on the 3rd largest word), then its time to return this particular string as the 3rd largest!*/
-**function ThirdGreatest(strarr){
-	function ThirdGreatest(arr){
+//WILL'S, START...
+	function TG(array){
+	    array = array.sort(function(a,b){return a.length - b.length});
+
+	var c = 0;
+	for (i=1;i<array.length;i++){
+	    if (array[i].length > array[i-1].length){
+	        c++;
+	    }
+	    if (c==2){return array[i];}
+	}
+	}
+	TG(["hello", "world", "after", "all"]);
+	
+	//WILL'S'
+function ThirdGreatest(arr){
 	arr.sort(function(a,b){return a.length - b.length});
 	var c = 0;
 	for(i=0;i<arr.length-1;i++){
@@ -710,7 +642,7 @@ function OffLineMinimum(array) {
 		    res += aset.sort().shift();
 	      	if (array.lastIndexOf("E") !== i){
 		    	res += ",";
-	        } else {}
+	        }
 		}
 	}
 	return res;

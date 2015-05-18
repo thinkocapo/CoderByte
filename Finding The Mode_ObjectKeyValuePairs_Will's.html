@@ -1,0 +1,51 @@
+<html>
+<script>
+
+//Finding the Mode
+/***
+//WILL'S
+    //IF the object doesn't have the 'property' yet, then add it to the         object
+    //ELSE if the object already has the property, then +1 it value (which      acts as the counter)
+
+	//re-check all of the 'properties' in the object and see if their values     //are greater than the existing max value
+***/
+function Mode(array){
+var numObj = {};
+var max = 0;
+var index = '';
+for (i=0; i<array.length; i++){
+    if (!numObj.hasOwnProperty(array[i])) {
+        numObj[array[i]] = 1;
+    } else {
+        numObj[array[i]] += 1;
+    }
+    for (var prop in numObj) {
+    if (numObj[prop] > max) {
+        max = numObj[prop];
+        index = prop;
+    }
+}
+}
+return index;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</html>

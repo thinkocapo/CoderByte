@@ -1,0 +1,26 @@
+<html>
+<script>
+//30. Off Line Minimum - The input will be in the following format: ["I","I","E","I",...,"E",...,"I"] where the I's stand for integers and the E means take out the smallest integer currently in the whole set. When finished, your program should return that new set with integers separated by commas. For example: if strArr is ["5","4","6","E","1","7","E","E","3","2"] then your program should return 4,1,5.*/
+
+//WILL'S
+function OffLineMinimum(array) { 
+	var aset = [];
+	var res = '';
+
+	for (i=0; i<array.length; i++){
+		if (aset.indexOf(array[i]) === -1 && array[i] !== 'E'){
+			aset.push(array[i]);
+		} else if (array[i] == 'E'){
+		    res += aset.sort().shift();
+	      	if (array.lastIndexOf("E") !== i){
+		    	res += ",";
+	        }
+		}
+	}
+	return res;
+}	
+OffLineMinimum(["5","4","6","E","1","7","E","E","3","2"]); //returns 4,1,5
+
+
+</script>
+</html>
